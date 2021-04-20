@@ -1,0 +1,60 @@
+<script type="text/javascript">
+    RED.nodes.registerType("Airbrake", {
+        category: "Airbrake",
+        color: '#F3991F',
+        inputs: 1,
+        outputs: 2,
+        outputLabels:['success','error'],
+        defaults: {
+            name:       { value: "" },
+            projectId:  { value: "" },
+            projectKey: { value: "" }
+        },
+        label: function () {
+            return this.name || "Airbrake"
+        }
+    });
+</script>
+
+
+<script type="text/x-red" data-template-name="Airbrake">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-projectId"><i class="fa fa-tag"></i> Project ID</label>
+        <input type="text" id="node-input-projectId" placeholder="Project ID">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-projectKey"><i class="fa fa-tag"></i> Project API Key</label>
+        <input type="text" id="node-input-projectKey" placeholder="Project API Key">
+    </div>
+
+   
+</script>
+
+<script type="text/x-red" data-help-name="Airbrake">
+    <p>Node-red nodes that allow users to send alerts to Airbrake for a project</p>
+
+
+    <h3>Input msg</h3>
+        
+    <pre>
+
+        projectId: '123456', // can either be passed in here, or selected in the dropdown of the node
+        projectKey: 'abcd1234xyz', // can either be passed in here, or selected in the dropdown of the node
+
+        payload: // The payload will be sent as message to Airbrake API for the projectId set
+    </pre>
+
+    <h3>Outputs:</h3>
+    <ul>
+        <li>1. success payload from API</li>
+        <li>2. error</li>
+    </ul>
+
+
+</script>
