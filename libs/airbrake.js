@@ -18,8 +18,10 @@ const { Notifier } = require('@airbrake/node');
                 projectKey: projectKey,
                 environment: env ? env : "production",
               });
-              
-              airbrake.notify(payload)
+
+            const message = typeof payload === 'object' && payload.data !== undefined ? JSON.stringify(payload.data): payload;
+
+              airbrake.notify(message)
               .then((notice) => {
                   if (notice.id)
                     resolve(notice.id);

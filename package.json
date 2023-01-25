@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-airbrake",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Airbrake node red library",
   "main": "airbrake.js",
   "scripts": {
